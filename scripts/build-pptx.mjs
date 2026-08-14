@@ -40,12 +40,13 @@ function title(slide, text, dark, y = 0.95) {
   slide.addText(text, { x: 0.45, y, w: W - 0.9, h: 0.8, fontFace: HEAD, fontSize: 30, bold: true, color: dark ? WHITE : BLUE });
 }
 
-function card(slide, { x, y, w, h, heading, body, accent = RED, dark = false }) {
+function card(slide, { x, y, w, h, heading, body, accent = RED, dark = false, hs = 14, bs = 12, hh = 0.58 }) {
   slide.addShape(pptx.ShapeType.roundRect, { x, y, w, h, fill: { color: dark ? "1E426F" : WHITE }, line: { color: dark ? "1E426F" : "E2E5EB" }, rectRadius: 0.08 });
-  slide.addShape(pptx.ShapeType.roundRect, { x: x + 0.25, y: y + 0.25, w: 0.45, h: 0.06, fill: { color: accent }, line: { color: accent }, rectRadius: 0.03 });
-  slide.addText(heading, { x: x + 0.25, y: y + 0.42, w: w - 0.5, h: 0.58, fontFace: HEAD, fontSize: 14, bold: true, color: dark ? WHITE : BLUE, margin: 0, valign: "top" });
-  slide.addText(body, { x: x + 0.25, y: y + 1.05, w: w - 0.5, h: h - 1.3, fontFace: BODY, fontSize: 12, color: dark ? "D5DEEA" : MUTED, margin: 0, valign: "top" });
+  slide.addShape(pptx.ShapeType.roundRect, { x: x + 0.25, y: y + 0.2, w: 0.45, h: 0.06, fill: { color: accent }, line: { color: accent }, rectRadius: 0.03 });
+  slide.addText(heading, { x: x + 0.25, y: y + 0.36, w: w - 0.5, h: hh, fontFace: HEAD, fontSize: hs, bold: true, color: dark ? WHITE : BLUE, margin: 0, valign: "top" });
+  slide.addText(body, { x: x + 0.25, y: y + 0.36 + hh + 0.04, w: w - 0.5, h: h - (0.36 + hh + 0.04) - 0.18, fontFace: BODY, fontSize: bs, color: dark ? "D5DEEA" : MUTED, margin: 0, valign: "top" });
 }
+
 
 /* 1 — Title */
 {
