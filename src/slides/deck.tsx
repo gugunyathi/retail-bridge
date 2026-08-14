@@ -613,6 +613,7 @@ export const slides: { id: string; title: string; Component: () => React.ReactEl
   { id: "first-mover", title: "First-Mover Advantage", Component: FirstMoverSlide },
   { id: "value-prop", title: "Value Proposition", Component: ValuePropSlide },
   { id: "benefits", title: "Benefits", Component: BenefitsSlide },
-
+  ...downstreamSlides,
   { id: "close", title: "Next Steps", Component: CloseSlide },
 ];
+
