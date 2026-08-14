@@ -5,6 +5,8 @@ import diasporaShopper from "@/assets/diaspora-shopper.jpg";
 import storePicking from "@/assets/store-picking.jpg";
 import logo from "@/assets/tmpnp-logo.png";
 import { Body, Card, Pill, SlideBase, SlideChrome } from "@/components/slide-kit";
+import { downstreamSlides } from "@/slides/downstream";
+
 
 const REVENUE = [
   { label: "Incremental retail margins", value: 12852000, note: "21% gross retail margin" },
