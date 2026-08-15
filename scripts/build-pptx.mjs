@@ -422,7 +422,7 @@ function panel(s, { x, y, w, h, heading, body, fill = "1E426F", head = WHITE, te
   const s = pptx.addSlide();
   s.background = { color: PAPER };
   chrome(s, "Slide 18 · Consolidated Revenue Model", 19, false);
-  title(s, "One revenue model: launch stack plus recurring layer", false);
+  title(s, "One consolidated revenue model", false);
   s.addShape(pptx.ShapeType.roundRect, { x: 0.45, y: 1.8, w: 5.3, h: 3.25, fill: { color: WHITE }, line: { color: "E2E5EB" }, rectRadius: 0.08 });
   s.addText("PHASE 1 · MODELLED TODAY", { x: 0.7, y: 1.95, w: 4.8, h: 0.28, fontFace: BODY, fontSize: 10, bold: true, charSpacing: 2, color: RED, margin: 0 });
   const rows = [
@@ -444,7 +444,7 @@ function panel(s, { x, y, w, h, heading, body, fill = "1E426F", head = WHITE, te
   s.addShape(pptx.ShapeType.roundRect, { x: 5.95, y: 1.8, w: 3.6, h: 3.25, fill: { color: BLUE }, line: { color: BLUE }, rectRadius: 0.08 });
   s.addText("PHASE 2 · RECURRING LAYER ADDED", { x: 6.2, y: 1.95, w: 3.1, h: 0.28, fontFace: BODY, fontSize: 10, bold: true, charSpacing: 1.5, color: GOLD, margin: 0 });
   const layer = [
-    ["Tenant platform fees", "Tiered monthly fee per retailer, wholesaler and tuck shop"],
+    ["Tenant platform fees", "Tiered monthly fee per retailer and tuck shop"],
     ["Rider plans", "Rent-to-buy instalment, then a standing platform fee"],
     ["Garage & maintenance plans", "Monthly servicing and parts cover, not per repair"],
     ["Data & price intelligence", "Demand and pricing feeds licensed to suppliers"],

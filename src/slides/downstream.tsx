@@ -496,7 +496,7 @@ function ConsolidatedRevenueSlide() {
       <SlideChrome kicker="Slide 18 · Consolidated Revenue Model" index={19} />
       <Body>
         <h2 className="slide-title text-pnp-blue">
-          One revenue model: launch stack plus a recurring layer
+          One consolidated revenue model
         </h2>
         <div className="mt-10 grid grid-cols-[1.15fr_1fr] gap-8">
           <div className="rounded-3xl border border-pnp-line bg-white p-9 shadow-sm">
