@@ -422,7 +422,7 @@ function panel(s, { x, y, w, h, heading, body, fill = "1E426F", head = WHITE, te
   const s = pptx.addSlide();
   s.background = { color: PAPER };
   chrome(s, "Slide 18 · Consolidated Revenue Model", 19, false);
-  title(s, "One revenue model: the launch stack plus a recurring layer", false);
+  title(s, "One revenue model: launch stack plus recurring layer", false);
   s.addShape(pptx.ShapeType.roundRect, { x: 0.45, y: 1.8, w: 5.3, h: 3.25, fill: { color: WHITE }, line: { color: "E2E5EB" }, rectRadius: 0.08 });
   s.addText("PHASE 1 · MODELLED TODAY", { x: 0.7, y: 1.95, w: 4.8, h: 0.28, fontFace: BODY, fontSize: 10, bold: true, charSpacing: 2, color: RED, margin: 0 });
   const rows = [
@@ -451,11 +451,11 @@ function panel(s, { x, y, w, h, heading, body, fill = "1E426F", head = WHITE, te
     ["Shopper plans", "Priority delivery and shared family baskets"],
   ];
   layer.forEach(([h, b], i) => {
-    const y = 2.32 + i * 0.5;
+    const y = 2.3 + i * 0.47;
     s.addText(h, { x: 6.2, y, w: 3.1, h: 0.22, fontFace: BODY, fontSize: 10.5, bold: true, color: WHITE, margin: 0 });
     s.addText(b, { x: 6.2, y: y + 0.2, w: 3.1, h: 0.26, fontFace: BODY, fontSize: 8.5, color: "C6D3E4", margin: 0 });
   });
-  s.addText("Pricing per tier still to be set — annual values [TBC] until tenant and rider counts are agreed.", { x: 6.2, y: 4.72, w: 3.1, h: 0.25, fontFace: BODY, fontSize: 8, color: "9FB3CC", margin: 0 });
+  s.addText("Pricing per tier still to be set — annual values [TBC] until tenant and rider counts are agreed.", { x: 6.2, y: 4.68, w: 3.1, h: 0.25, fontFace: BODY, fontSize: 8, color: "9FB3CC", margin: 0 });
 }
 
 /* 20 — Future revenue mix */
