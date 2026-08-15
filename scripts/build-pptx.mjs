@@ -417,11 +417,74 @@ function panel(s, { x, y, w, h, heading, body, fill = "1E426F", head = WHITE, te
   s.addText("Every line above is bent toward recurring revenue. One-off transaction fees fund a project; recurring fees fund a company and give the valuation a base to stand on.", { x: 0.45, y: 4.55, w: 9.1, h: 0.6, fontFace: BODY, fontSize: 11.5, color: "FDE7EC", margin: 0 });
 }
 
-/* 19 — Scooter economics */
+/* 19 — Consolidated revenue model */
+{
+  const s = pptx.addSlide();
+  s.background = { color: PAPER };
+  chrome(s, "Slide 18 · Consolidated Revenue Model", 19, false);
+  title(s, "One consolidated revenue model", false);
+  s.addShape(pptx.ShapeType.roundRect, { x: 0.45, y: 1.8, w: 5.3, h: 3.25, fill: { color: WHITE }, line: { color: "E2E5EB" }, rectRadius: 0.08 });
+  s.addText("PHASE 1 · MODELLED TODAY", { x: 0.7, y: 1.95, w: 4.8, h: 0.28, fontFace: BODY, fontSize: 10, bold: true, charSpacing: 2, color: RED, margin: 0 });
+  const rows = [
+    ["Retail product margins", "21% margin on migrated basket · Transactional", "US$12,852,000"],
+    ["Last-mile delivery share", "US$1.50 net per drop · Transactional", "US$1,080,000"],
+    ["Cross-border surcharge", "3% on international cards · Transactional", "US$1,836,000"],
+    ["Diaspora Priority plans", "6,000 subscribers @ US$8.99 · Recurring", "US$647,280"],
+    ["Retail media network", "1.2% of platform GMV · Semi-recurring", "US$734,400"],
+  ];
+  rows.forEach(([l, b, v], i) => {
+    const y = 2.3 + i * 0.44;
+    s.addText(l, { x: 0.7, y, w: 3.1, h: 0.22, fontFace: BODY, fontSize: 11, bold: true, color: INK, margin: 0 });
+    s.addText(b, { x: 0.7, y: y + 0.2, w: 3.4, h: 0.2, fontFace: BODY, fontSize: 8.5, color: MUTED, margin: 0 });
+    s.addText(v, { x: 4.1, y: y + 0.02, w: 1.4, h: 0.24, align: "right", fontFace: BODY, fontSize: 11, bold: true, color: BLUE, margin: 0 });
+  });
+  s.addShape(pptx.ShapeType.rect, { x: 0.7, y: 4.55, w: 4.8, h: 0.01, fill: { color: "E2E5EB" }, line: { color: "E2E5EB" } });
+  s.addText("Total ecosystem", { x: 0.7, y: 4.65, w: 2.6, h: 0.26, fontFace: BODY, fontSize: 11, bold: true, color: INK, margin: 0 });
+  s.addText("US$17,149,680", { x: 3.5, y: 4.62, w: 2.0, h: 0.3, align: "right", fontFace: HEAD, fontSize: 13, bold: true, color: RED, margin: 0 });
+  s.addShape(pptx.ShapeType.roundRect, { x: 5.95, y: 1.8, w: 3.6, h: 3.25, fill: { color: BLUE }, line: { color: BLUE }, rectRadius: 0.08 });
+  s.addText("PHASE 2 · RECURRING LAYER ADDED", { x: 6.2, y: 1.95, w: 3.1, h: 0.28, fontFace: BODY, fontSize: 10, bold: true, charSpacing: 1.5, color: GOLD, margin: 0 });
+  const layer = [
+    ["Tenant platform fees", "Tiered monthly fee per retailer and tuck shop"],
+    ["Rider plans", "Rent-to-buy instalment, then a standing platform fee"],
+    ["Garage & maintenance plans", "Monthly servicing and parts cover, not per repair"],
+    ["Data & price intelligence", "Demand and pricing feeds licensed to suppliers"],
+    ["Shopper plans", "Priority delivery and shared family baskets"],
+  ];
+  layer.forEach(([h, b], i) => {
+    const y = 2.3 + i * 0.47;
+    s.addText(h, { x: 6.2, y, w: 3.1, h: 0.22, fontFace: BODY, fontSize: 10.5, bold: true, color: WHITE, margin: 0 });
+    s.addText(b, { x: 6.2, y: y + 0.2, w: 3.1, h: 0.26, fontFace: BODY, fontSize: 8.5, color: "C6D3E4", margin: 0 });
+  });
+  s.addText("Pricing per tier still to be set — annual values [TBC] until tenant and rider counts are agreed.", { x: 6.2, y: 4.68, w: 3.1, h: 0.25, fontFace: BODY, fontSize: 8, color: "9FB3CC", margin: 0 });
+}
+
+/* 20 — Future revenue mix */
 {
   const s = pptx.addSlide();
   s.background = { color: BLUE_DEEP };
-  chrome(s, "Slide 18 · Owned Delivery Network", 19, true);
+  chrome(s, "Slide 19 · Future Revenue Mix", 20, true);
+  title(s, "From transaction-led to subscription-led as the platform goes agnostic", true);
+  const phases = [
+    ["LAUNCH", "Diaspora-to-door on TM stock", "Retail margin, delivery share and the cross-border surcharge carry the model. One recurring line: Diaspora Priority at US$647,280."],
+    ["SCALE", "Second and third retailers onboard", "Tenant platform fees, rider plans and garage plans start billing monthly. Transaction fees stay, but stop being the whole story."],
+    ["AGNOSTIC", "Marketplace of retailers and tuck shops", "Subscriptions across tenants, riders, shoppers and data become the base load; commission rides on top as upside."],
+  ];
+  phases.forEach(([k, h, b], i) => {
+    const x = 0.45 + i * 3.1;
+    s.addShape(pptx.ShapeType.roundRect, { x, y: 1.85, w: 2.9, h: 2.35, fill: { color: "1E426F" }, line: { color: "1E426F" }, rectRadius: 0.08 });
+    s.addText(k, { x: x + 0.25, y: 2.0, w: 2.4, h: 0.25, fontFace: BODY, fontSize: 9.5, bold: true, charSpacing: 2, color: GOLD, margin: 0 });
+    s.addText(h, { x: x + 0.25, y: 2.28, w: 2.4, h: 0.55, fontFace: HEAD, fontSize: 13, bold: true, color: WHITE, margin: 0, valign: "top" });
+    s.addText(b, { x: x + 0.25, y: 2.9, w: 2.4, h: 1.2, fontFace: BODY, fontSize: 9.5, color: "C6D3E4", margin: 0, valign: "top" });
+  });
+  s.addShape(pptx.ShapeType.roundRect, { x: 0.45, y: 4.35, w: 9.1, h: 0.65, fill: { color: RED }, line: { color: RED }, rectRadius: 0.08 });
+  s.addText("Same ecosystem, valued differently: transaction fees fund a project, recurring fees fund a company.", { x: 0.75, y: 4.45, w: 8.5, h: 0.45, fontFace: HEAD, fontSize: 13, bold: true, color: WHITE, margin: 0 });
+}
+
+/* 21 — Scooter economics */
+{
+  const s = pptx.addSlide();
+  s.background = { color: BLUE_DEEP };
+  chrome(s, "Slide 20 · Owned Delivery Network", 21, true);
   title(s, "The last mile is owned, not outsourced", true);
   const stats = [["500–2,000", "Platform-owned electric scooters"], ["12 months", "Rent-to-buy, then the rider owns it"], ["~5 months", "Asset pays itself back"], ["~10%", "Platform fee per dollar earned after ownership"]];
   stats.forEach(([v, l], i) => {
@@ -441,11 +504,11 @@ function panel(s, { x, y, w, h, heading, body, fill = "1E426F", head = WHITE, te
   s.addImage({ data: BIKE, x: 0.45, y: 4.68, w: 9.1, h: 0.42, sizing: { type: "cover", w: 9.1, h: 0.42 } });
 }
 
-/* 20 — Loyalty */
+/* 22 — Loyalty */
 {
   const s = pptx.addSlide();
   s.background = { color: PAPER };
-  chrome(s, "Slide 19 · Loyalty & Device Migration", 20, false);
+  chrome(s, "Slide 21 · Loyalty & Device Migration", 22, false);
   title(s, "Trade US$100 a month for five months — earn the handset", false);
   ["Month 1", "Month 2", "Month 3", "Month 4", "Month 5"].forEach((m, i) => {
     const x = 0.45 + i * 1.85;
@@ -464,11 +527,11 @@ function panel(s, { x, y, w, h, heading, body, fill = "1E426F", head = WHITE, te
   });
 }
 
-/* 21 — Bank-agnostic rails */
+/* 23 — Bank-agnostic rails */
 {
   const s = pptx.addSlide();
   s.background = { color: BLUE_DEEP };
-  chrome(s, "Slide 20 · Payment Rails", 21, true);
+  chrome(s, "Slide 22 · Payment Rails", 23, true);
   title(s, "Bank-agnostic by design, multi-bank in practice", true);
   panel(s, { x: 0.45, y: 1.85, w: 4.45, h: 2.35, heading: "What we say to banks", body: "Plug your remittance APIs into the platform and we bring transaction share-of-wallet: recurring diaspora flows landing as retail settlement rather than cash-out.\n\nNo exclusivity is requested and none is given. Every rail is one integration among several, so pricing stays competitive and no single institution gates the platform." });
   panel(s, { x: 5.1, y: 1.85, w: 4.45, h: 2.35, heading: "What we say to the retailer", body: "Banks bring critical mass. Their diaspora bases are already captured audiences; the platform converts those balances into baskets inside your estate.\n\nInstitutions under discussion are prospects at this stage. Nothing is presented in-app as a confirmed partnership until an agreement is signed." });
@@ -476,11 +539,11 @@ function panel(s, { x, y, w, h, heading, body, fill = "1E426F", head = WHITE, te
   s.addText("Design rule: no bank-specific logic in the core. Rails are adapters, so adding or dropping an institution is a configuration change, never a rebuild.", { x: 0.7, y: 4.35, w: 8.6, h: 0.72, valign: "middle", fontFace: BODY, fontSize: 11, color: WHITE, margin: 0 });
 }
 
-/* 22 — Wholesale and tuck shops */
+/* 24 — Wholesale and tuck shops */
 {
   const s = pptx.addSlide();
   s.background = { color: PAPER };
-  chrome(s, "Slide 21 · Wholesale & Informal Channel", 22, false);
+  chrome(s, "Slide 23 · Wholesale & Informal Channel", 24, false);
   title(s, "Tuck shops become distribution extensions, not competitors", false);
   const steps = [
     ["Aggregate", "Local orders in a suburb are pooled in the app rather than fragmented across trips."],
@@ -500,11 +563,11 @@ function panel(s, { x, y, w, h, heading, body, fill = "1E426F", head = WHITE, te
   card(s, { x: 5.1, y: 3.4, w: 4.45, h: 1.6, accent: BLUE, heading: "The government argument", body: "Routing informal trade through the platform makes it visible: tax is captured, stock is traceable and counterfeit product is squeezed out. Legitimisation, not enforcement." });
 }
 
-/* 23 — Commercial and entity structure */
+/* 25 — Commercial and entity structure */
 {
   const s = pptx.addSlide();
   s.background = { color: BLUE_DEEP };
-  chrome(s, "Slide 22 · Commercial & Entity Structure", 23, true);
+  chrome(s, "Slide 24 · Commercial & Entity Structure", 25, true);
   title(s, "Hybrid commercial model, two-country structure", true);
   const model = [
     ["White-label", "The storefront and app ship under the retailer's brand, licensed rather than sold."],

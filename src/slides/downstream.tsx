@@ -223,7 +223,7 @@ const SCOOTER_STATS: [string, string][] = [
 function ScooterSlide() {
   return (
     <SlideBase tone="blue">
-      <SlideChrome kicker="Slide 18 · Owned Delivery Network" index={19} tone="blue" />
+      <SlideChrome kicker="Slide 20 · Owned Delivery Network" index={21} tone="blue" />
       <Body>
         <h2 className="slide-title">The last mile is owned, not outsourced</h2>
         <div className="mt-10 grid grid-cols-4 gap-6">
@@ -280,7 +280,7 @@ function ScooterSlide() {
 function LoyaltySlide() {
   return (
     <SlideBase>
-      <SlideChrome kicker="Slide 19 · Loyalty & Device Migration" index={20} />
+      <SlideChrome kicker="Slide 21 · Loyalty & Device Migration" index={22} />
       <Body>
         <h2 className="slide-title text-pnp-blue">
           Trade US$100 a month for five months — earn the handset
@@ -326,7 +326,7 @@ function LoyaltySlide() {
 function BankingSlide() {
   return (
     <SlideBase tone="blue">
-      <SlideChrome kicker="Slide 20 · Payment Rails" index={21} tone="blue" />
+      <SlideChrome kicker="Slide 22 · Payment Rails" index={23} tone="blue" />
       <Body>
         <h2 className="slide-title">Bank-agnostic by design, multi-bank in practice</h2>
         <div className="mt-12 grid grid-cols-2 gap-10">
@@ -371,7 +371,7 @@ function BankingSlide() {
 function WholesaleSlide() {
   return (
     <SlideBase>
-      <SlideChrome kicker="Slide 21 · Wholesale & Informal Channel" index={22} />
+      <SlideChrome kicker="Slide 23 · Wholesale & Informal Channel" index={24} />
       <Body>
         <h2 className="slide-title text-pnp-blue">
           Tuck shops become distribution extensions, not competitors
@@ -430,7 +430,7 @@ function WholesaleSlide() {
 function StructureSlide() {
   return (
     <SlideBase tone="blue">
-      <SlideChrome kicker="Slide 22 · Commercial & Entity Structure" index={23} tone="blue" />
+      <SlideChrome kicker="Slide 24 · Commercial & Entity Structure" index={25} tone="blue" />
       <Body>
         <h2 className="slide-title">Hybrid commercial model, two-country structure</h2>
         <div className="mt-12 grid grid-cols-3 gap-8">
@@ -470,6 +470,124 @@ function StructureSlide() {
   );
 }
 
+/* ------------------------------------------------------------------ */
+/* 19 — Consolidated ecosystem revenue model                           */
+/* ------------------------------------------------------------------ */
+
+const CONSOLIDATED: [string, string, string, string][] = [
+  ["Retail product margins", "21% margin on migrated basket", "Transactional", "US$12,852,000"],
+  ["Last-mile delivery share", "US$1.50 net per drop", "Transactional", "US$1,080,000"],
+  ["Cross-border surcharge", "3% on international cards", "Transactional", "US$1,836,000"],
+  ["Diaspora Priority plans", "6,000 subscribers @ US$8.99", "Recurring", "US$647,280"],
+  ["Retail media network", "1.2% of platform GMV", "Semi-recurring", "US$734,400"],
+];
+
+const LAYERED: [string, string][] = [
+  ["Tenant platform fees", "Tiered monthly fee per retailer, wholesaler and tuck shop on the platform"],
+  ["Rider plans", "Rent-to-buy instalment, then a standing platform fee per rider"],
+  ["Garage & maintenance plans", "Monthly servicing and parts cover instead of per-repair invoices"],
+  ["Data & price intelligence", "Demand and pricing feeds licensed to suppliers by subscription"],
+  ["Shopper plans", "Priority delivery and shared family baskets beyond the diaspora tier"],
+];
+
+function ConsolidatedRevenueSlide() {
+  return (
+    <SlideBase>
+      <SlideChrome kicker="Slide 18 · Consolidated Revenue Model" index={19} />
+      <Body>
+        <h2 className="slide-title text-pnp-blue">
+          One consolidated revenue model
+        </h2>
+        <div className="mt-10 grid grid-cols-[1.15fr_1fr] gap-8">
+          <div className="rounded-3xl border border-pnp-line bg-white p-9 shadow-sm">
+            <span className="slide-kicker text-pnp-red">Phase 1 · Modelled today</span>
+            <div className="mt-6 space-y-4">
+              {CONSOLIDATED.map(([label, basis, kind, value]) => (
+                <div key={label} className="flex items-center gap-5">
+                  <div className="flex-1">
+                    <div className="slide-caption font-bold text-pnp-ink">{label}</div>
+                    <div className="slide-chrome text-pnp-muted">
+                      {basis} · {kind}
+                    </div>
+                  </div>
+                  <div className="slide-caption font-extrabold text-pnp-blue">{value}</div>
+                </div>
+              ))}
+            </div>
+            <div className="mt-6 flex items-center justify-between border-t border-pnp-line pt-5">
+              <span className="slide-caption font-bold text-pnp-ink">Total ecosystem</span>
+              <span className="slide-body font-extrabold text-pnp-red">US$17,149,680</span>
+            </div>
+          </div>
+          <div className="rounded-3xl bg-pnp-blue p-9 text-white">
+            <span className="slide-kicker text-pnp-gold">Phase 2 · Recurring layer added</span>
+            <div className="mt-6 space-y-5">
+              {LAYERED.map(([t, d]) => (
+                <div key={t}>
+                  <div className="slide-caption font-bold text-white">{t}</div>
+                  <div className="slide-chrome text-white/70">{d}</div>
+                </div>
+              ))}
+            </div>
+            <p className="slide-chrome mt-6 text-white/60">
+              Pricing per tier still to be set — annual values shown as [TBC] until tenant and rider
+              counts are agreed.
+            </p>
+          </div>
+        </div>
+      </Body>
+    </SlideBase>
+  );
+}
+
+/* ------------------------------------------------------------------ */
+/* 20 — Revenue mix shift                                              */
+/* ------------------------------------------------------------------ */
+
+function RevenueMixSlide() {
+  return (
+    <SlideBase tone="blue">
+      <SlideChrome kicker="Slide 19 · Future Revenue Mix" index={20} tone="blue" />
+      <Body>
+        <h2 className="slide-title">
+          The mix moves from transaction-led to subscription-led as the platform goes agnostic
+        </h2>
+        <div className="mt-12 grid grid-cols-3 gap-8">
+          {[
+            [
+              "Launch",
+              "Diaspora-to-door on TM stock",
+              "Retail margin, delivery share and the cross-border surcharge carry the model. One recurring line: Diaspora Priority at US$647,280.",
+            ],
+            [
+              "Scale",
+              "Second and third retailers onboard",
+              "Tenant platform fees, rider plans and garage plans start billing monthly. Transaction fees stay, but stop being the whole story.",
+            ],
+            [
+              "Agnostic",
+              "Marketplace of retailers and tuck shops",
+              "Subscriptions across tenants, riders, shoppers and data become the base load; commission rides on top as upside.",
+            ],
+          ].map(([phase, sub, body]) => (
+            <div key={phase} className="rounded-3xl bg-white/10 p-10">
+              <span className="slide-kicker text-pnp-gold">{phase}</span>
+              <h3 className="slide-subtitle mt-3 text-white">{sub}</h3>
+              <p className="slide-body mt-5 text-white/80">{body}</p>
+            </div>
+          ))}
+        </div>
+        <div className="mt-10 rounded-3xl bg-pnp-red px-12 py-8">
+          <p className="slide-subtitle text-white">
+            Same ecosystem, valued differently: transaction fees fund a project, recurring fees fund
+            a company.
+          </p>
+        </div>
+      </Body>
+    </SlideBase>
+  );
+}
+
 export const downstreamSlides: {
   id: string;
   title: string;
@@ -479,6 +597,8 @@ export const downstreamSlides: {
   { id: "agnostic", title: "Retail-Agnostic End State", Component: AgnosticSlide },
   { id: "price-engine", title: "Price Comparison Engine", Component: PriceEngineSlide },
   { id: "subscription", title: "Subscription Is the Model", Component: SubscriptionSlide },
+  { id: "consolidated-revenue", title: "Consolidated Revenue Model", Component: ConsolidatedRevenueSlide },
+  { id: "revenue-mix", title: "Future Revenue Mix", Component: RevenueMixSlide },
   { id: "scooters", title: "Owned Delivery Network", Component: ScooterSlide },
   { id: "loyalty", title: "Loyalty & Device Migration", Component: LoyaltySlide },
   { id: "banking", title: "Bank-Agnostic Rails", Component: BankingSlide },
