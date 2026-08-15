@@ -223,7 +223,7 @@ const SCOOTER_STATS: [string, string][] = [
 function ScooterSlide() {
   return (
     <SlideBase tone="blue">
-      <SlideChrome kicker="Slide 18 · Owned Delivery Network" index={19} tone="blue" />
+      <SlideChrome kicker="Slide 20 · Owned Delivery Network" index={21} tone="blue" />
       <Body>
         <h2 className="slide-title">The last mile is owned, not outsourced</h2>
         <div className="mt-10 grid grid-cols-4 gap-6">
@@ -280,7 +280,7 @@ function ScooterSlide() {
 function LoyaltySlide() {
   return (
     <SlideBase>
-      <SlideChrome kicker="Slide 19 · Loyalty & Device Migration" index={20} />
+      <SlideChrome kicker="Slide 21 · Loyalty & Device Migration" index={22} />
       <Body>
         <h2 className="slide-title text-pnp-blue">
           Trade US$100 a month for five months — earn the handset
@@ -326,7 +326,7 @@ function LoyaltySlide() {
 function BankingSlide() {
   return (
     <SlideBase tone="blue">
-      <SlideChrome kicker="Slide 20 · Payment Rails" index={21} tone="blue" />
+      <SlideChrome kicker="Slide 22 · Payment Rails" index={23} tone="blue" />
       <Body>
         <h2 className="slide-title">Bank-agnostic by design, multi-bank in practice</h2>
         <div className="mt-12 grid grid-cols-2 gap-10">
@@ -371,7 +371,7 @@ function BankingSlide() {
 function WholesaleSlide() {
   return (
     <SlideBase>
-      <SlideChrome kicker="Slide 21 · Wholesale & Informal Channel" index={22} />
+      <SlideChrome kicker="Slide 23 · Wholesale & Informal Channel" index={24} />
       <Body>
         <h2 className="slide-title text-pnp-blue">
           Tuck shops become distribution extensions, not competitors
@@ -430,7 +430,7 @@ function WholesaleSlide() {
 function StructureSlide() {
   return (
     <SlideBase tone="blue">
-      <SlideChrome kicker="Slide 22 · Commercial & Entity Structure" index={23} tone="blue" />
+      <SlideChrome kicker="Slide 24 · Commercial & Entity Structure" index={25} tone="blue" />
       <Body>
         <h2 className="slide-title">Hybrid commercial model, two-country structure</h2>
         <div className="mt-12 grid grid-cols-3 gap-8">
