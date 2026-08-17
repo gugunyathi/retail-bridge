@@ -495,12 +495,12 @@ const LAYERED: [string, string, string][] = [
 function ConsolidatedRevenueSlide() {
   return (
     <SlideBase>
-      <SlideChrome kicker="Slide 18 · Consolidated Revenue Model" index={19} />
+      <SlideChrome kicker="Consolidated Ecosystem Revenue" index={19} />
       <Body>
         <h2 className="slide-title text-pnp-blue">
-          One consolidated revenue model
+          The full ecosystem: US$21,841,380 a year
         </h2>
-        <div className="mt-10 grid grid-cols-[1.15fr_1fr] gap-8">
+        <div className="mt-8 grid grid-cols-[1.05fr_1fr] gap-8">
           <div className="rounded-3xl border border-pnp-line bg-white p-9 shadow-sm">
             <span className="slide-kicker text-pnp-red">Phase 1 · Modelled today</span>
             <div className="mt-6 space-y-4">
