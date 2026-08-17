@@ -187,12 +187,12 @@ const SUBS: [string, string][] = [
 function SubscriptionSlide() {
   return (
     <SlideBase tone="red">
-      <SlideChrome kicker="Slide 17 · The Revenue Model" index={18} tone="red" />
+      <SlideChrome kicker="The Subscription Model" index={18} tone="red" />
       <Body>
         <h2 className="slide-title">
           Anything that allows a subscription is the model. The rest is not sustainable.
         </h2>
-        <div className="mt-12 grid grid-cols-3 gap-8">
+        <div className="mt-10 grid grid-cols-3 gap-8">
           {SUBS.map(([t, d]) => (
             <div key={t} className="rounded-3xl bg-white/12 p-9">
               <h3 className="slide-subtitle text-white">{t}</h3>
@@ -200,9 +200,9 @@ function SubscriptionSlide() {
             </div>
           ))}
         </div>
-        <p className="slide-subtitle mt-10 text-white/85">
-          Every line above is bent toward recurring revenue. One-off transaction fees fund a
-          project; recurring fees fund a company and give the valuation a base to stand on.
+        <p className="slide-body-lg mt-8 text-white/85">
+          Every line above is bent toward recurring revenue: one-off fees fund a project, recurring
+          fees fund a company.
         </p>
       </Body>
     </SlideBase>
@@ -497,10 +497,10 @@ function ConsolidatedRevenueSlide() {
     <SlideBase>
       <SlideChrome kicker="Consolidated Ecosystem Revenue" index={19} />
       <Body>
-        <h2 className="slide-title text-pnp-blue">
+        <h2 className="slide-subtitle text-pnp-blue">
           The full ecosystem: US$21,841,380 a year
         </h2>
-        <div className="mt-8 grid grid-cols-[1.05fr_1fr] gap-8">
+        <div className="mt-7 grid grid-cols-[1.05fr_1fr] gap-8">
           <div className="rounded-3xl border border-pnp-line bg-white p-9 shadow-sm">
             <span className="slide-kicker text-pnp-red">Phase 1 · Modelled today</span>
             <div className="mt-6 space-y-4">
@@ -540,9 +540,11 @@ function ConsolidatedRevenueSlide() {
             </div>
           </div>
         </div>
-        <div className="mt-8 flex items-center justify-between rounded-3xl bg-pnp-red px-12 py-7 text-white">
-          <span className="slide-subtitle">Combined annual ecosystem revenue at steady state</span>
-          <span className="slide-title text-white">US$21,841,380</span>
+        <div className="mt-6 flex items-center justify-between rounded-3xl bg-pnp-red px-12 py-5 text-white">
+          <span className="slide-body-lg font-semibold">
+            Combined annual ecosystem revenue at steady state
+          </span>
+          <span className="slide-subtitle font-extrabold text-white">US$21,841,380</span>
         </div>
       </Body>
     </SlideBase>
