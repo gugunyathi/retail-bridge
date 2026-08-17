@@ -522,20 +522,27 @@ function ConsolidatedRevenueSlide() {
             </div>
           </div>
           <div className="rounded-3xl bg-pnp-blue p-9 text-white">
-            <span className="slide-kicker text-pnp-gold">Phase 2 · Recurring layer added</span>
-            <div className="mt-6 space-y-5">
-              {LAYERED.map(([t, d]) => (
-                <div key={t}>
-                  <div className="slide-caption font-bold text-white">{t}</div>
-                  <div className="slide-chrome text-white/70">{d}</div>
+            <span className="slide-kicker text-pnp-gold">Phase 2 · Subscription layer</span>
+            <div className="mt-6 space-y-4">
+              {LAYERED.map(([t, d, v]) => (
+                <div key={t} className="flex items-center gap-5">
+                  <div className="flex-1">
+                    <div className="slide-caption font-bold text-white">{t}</div>
+                    <div className="slide-chrome text-white/70">{d}</div>
+                  </div>
+                  <div className="slide-caption font-extrabold text-pnp-gold">{v}</div>
                 </div>
               ))}
             </div>
-            <p className="slide-chrome mt-6 text-white/60">
-              Pricing per tier still to be set — annual values shown as [TBC] until tenant and rider
-              counts are agreed.
-            </p>
+            <div className="mt-6 flex items-center justify-between border-t border-white/20 pt-5">
+              <span className="slide-caption font-bold text-white">Subscription subtotal</span>
+              <span className="slide-body font-extrabold text-pnp-gold">US$4,691,700</span>
+            </div>
           </div>
+        </div>
+        <div className="mt-8 flex items-center justify-between rounded-3xl bg-pnp-red px-12 py-7 text-white">
+          <span className="slide-subtitle">Combined annual ecosystem revenue at steady state</span>
+          <span className="slide-title text-white">US$21,841,380</span>
         </div>
       </Body>
     </SlideBase>
