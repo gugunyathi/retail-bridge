@@ -556,30 +556,30 @@ function ConsolidatedRevenueSlide() {
 function RevenueMixSlide() {
   return (
     <SlideBase tone="blue">
-      <SlideChrome kicker="Slide 19 · Future Revenue Mix" index={20} tone="blue" />
+      <SlideChrome kicker="Future Revenue Mix" index={20} tone="blue" />
       <Body>
         <h2 className="slide-title">
-          The mix moves from transaction-led to subscription-led as the platform goes agnostic
+          From transaction-led to subscription-led
         </h2>
-        <div className="mt-12 grid grid-cols-3 gap-8">
+        <div className="mt-10 grid grid-cols-3 gap-8">
           {[
             [
-              "Launch",
+              "Launch · US$17.1M",
               "Diaspora-to-door on TM stock",
-              "Retail margin, delivery share and the cross-border surcharge carry the model. One recurring line: Diaspora Priority at US$647,280.",
+              "Retail margin, delivery share and the cross-border surcharge carry the model. One recurring line: Diaspora Priority at US$647,280 — 4% of revenue.",
             ],
             [
-              "Scale",
+              "Scale · +US$1.4M",
               "Second and third retailers onboard",
-              "Tenant platform fees, rider plans and garage plans start billing monthly. Transaction fees stay, but stop being the whole story.",
+              "Tenant fees (US$717,120), rider plans (US$486,000) and garage cover (US$194,400) start billing monthly, whatever the basket does.",
             ],
             [
-              "Agnostic",
+              "Agnostic · US$21.8M",
               "Marketplace of retailers and tuck shops",
-              "Subscriptions across tenants, riders, shoppers and data become the base load; commission rides on top as upside.",
+              "Shopper plans, tuck-shop apps and data licences add US$3.29M. Recurring revenue reaches US$5,338,980 — 24% of the ecosystem.",
             ],
           ].map(([phase, sub, body]) => (
-            <div key={phase} className="rounded-3xl bg-white/10 p-10">
+            <div key={phase} className="rounded-3xl bg-white/10 p-9">
               <span className="slide-kicker text-pnp-gold">{phase}</span>
               <h3 className="slide-subtitle mt-3 text-white">{sub}</h3>
               <p className="slide-body mt-5 text-white/80">{body}</p>
