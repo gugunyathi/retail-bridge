@@ -597,6 +597,49 @@ function RevenueMixSlide() {
   );
 }
 
+/* ------------------------------------------------------------------ */
+/* The moat — multi-cart, multi-currency diaspora shopping             */
+/* ------------------------------------------------------------------ */
+
+const MOAT: [string, string][] = [
+  [
+    "Multi-cart",
+    "One diaspora sender runs several carts at once — mother in Bulawayo, sister in Gweru, a school tuck order — each with its own recipient, address and delivery slot.",
+  ],
+  [
+    "Multi-currency",
+    "Pay in GBP, USD, ZAR or EUR; settle in-country. FX is handled inside the platform, so the sender never touches a parallel-market rate.",
+  ],
+  [
+    "Sender control",
+    "The payer chooses the goods, not the cash. Money lands as groceries at a door, with proof of delivery back to the sender.",
+  ],
+  [
+    "Why it defends",
+    "Remittance apps move money and stop. Retailers sell locally and stop. Owning both sides of that handover is what nobody else in the market has assembled.",
+  ],
+];
+
+export function MoatSlide() {
+  return (
+    <SlideBase>
+      <SlideChrome kicker="The Moat" index={4} />
+      <Body>
+        <h2 className="slide-title text-pnp-blue">
+          Multi-cart, multi-currency: the moat competitors can’t copy quickly
+        </h2>
+        <div className="mt-10 grid grid-cols-2 gap-8">
+          {MOAT.map(([t, d]) => (
+            <Card key={t} title={t} accent={t === "Why it defends" ? "blue" : "red"}>
+              {d}
+            </Card>
+          ))}
+        </div>
+      </Body>
+    </SlideBase>
+  );
+}
+
 export const downstreamSlides: {
   id: string;
   title: string;
