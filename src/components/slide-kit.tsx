@@ -1,5 +1,18 @@
-import type { ReactNode } from "react";
+import { createContext, useContext, type ReactNode } from "react";
 import logo from "@/assets/tmpnp-logo.png";
+
+/** Position of the slide in the deck (1-based). Overrides hardcoded numbers. */
+export const SlideIndexContext = createContext<number | null>(null);
+
+export function SlideIndexProvider({
+  value,
+  children,
+}: {
+  value: number;
+  children: ReactNode;
+}) {
+  return <SlideIndexContext.Provider value={value}>{children}</SlideIndexContext.Provider>;
+}
 
 export function SlideBase({
   children,
