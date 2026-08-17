@@ -482,12 +482,14 @@ const CONSOLIDATED: [string, string, string, string][] = [
   ["Retail media network", "1.2% of platform GMV", "Semi-recurring", "US$734,400"],
 ];
 
-const LAYERED: [string, string][] = [
-  ["Tenant platform fees", "Tiered monthly fee per retailer, wholesaler and tuck shop on the platform"],
-  ["Rider plans", "Rent-to-buy instalment, then a standing platform fee per rider"],
-  ["Garage & maintenance plans", "Monthly servicing and parts cover instead of per-repair invoices"],
-  ["Data & price intelligence", "Demand and pricing feeds licensed to suppliers by subscription"],
-  ["Shopper plans", "Priority delivery and shared family baskets beyond the diaspora tier"],
+/** Phase 2 recurring lines — modelled at steady state, year 3 of the agnostic build. */
+const LAYERED: [string, string, string][] = [
+  ["Tenant platform fees", "240 retail / wholesale tenants @ US$249 pm", "US$717,120"],
+  ["Rider plans", "900 riders @ US$45 pm platform fee", "US$486,000"],
+  ["Garage & maintenance plans", "900 units @ US$18 pm service cover", "US$194,400"],
+  ["Data & price intelligence", "40 supplier licences @ US$1,500 pm", "US$720,000"],
+  ["Shopper plans", "45,000 households @ US$3.99 pm", "US$2,154,600"],
+  ["Tuck-shop trading app", "3,500 shops @ US$9.99 pm", "US$419,580"],
 ];
 
 function ConsolidatedRevenueSlide() {
