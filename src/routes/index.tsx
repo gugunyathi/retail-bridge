@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useCallback, useEffect, useState } from "react";
 import { ScaledSlide } from "@/components/ScaledSlide";
+import { SlideIndexProvider } from "@/components/slide-kit";
 import { slides } from "@/slides/deck";
 
 export const Route = createFileRoute("/")({
@@ -115,7 +116,9 @@ function Deck() {
               >
                 <div className="aspect-video overflow-hidden rounded-xl border border-white/15">
                   <ScaledSlide>
-                    <C />
+                    <SlideIndexProvider value={idx + 1}>
+                      <C />
+                    </SlideIndexProvider>
                   </ScaledSlide>
                 </div>
                 <div className="mt-2 text-xs font-medium text-white/70">
@@ -130,7 +133,9 @@ function Deck() {
           <main className="flex-1 p-4">
             <div className="mx-auto aspect-video h-full max-h-[calc(100vh-160px)] w-full max-w-[1600px] overflow-hidden rounded-2xl">
               <ScaledSlide>
-                <Current />
+                <SlideIndexProvider value={i + 1}>
+                  <Current />
+                </SlideIndexProvider>
               </ScaledSlide>
             </div>
           </main>

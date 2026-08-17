@@ -187,12 +187,12 @@ const SUBS: [string, string][] = [
 function SubscriptionSlide() {
   return (
     <SlideBase tone="red">
-      <SlideChrome kicker="Slide 17 · The Revenue Model" index={18} tone="red" />
+      <SlideChrome kicker="The Subscription Model" index={18} tone="red" />
       <Body>
         <h2 className="slide-title">
           Anything that allows a subscription is the model. The rest is not sustainable.
         </h2>
-        <div className="mt-12 grid grid-cols-3 gap-8">
+        <div className="mt-10 grid grid-cols-3 gap-8">
           {SUBS.map(([t, d]) => (
             <div key={t} className="rounded-3xl bg-white/12 p-9">
               <h3 className="slide-subtitle text-white">{t}</h3>
@@ -200,9 +200,9 @@ function SubscriptionSlide() {
             </div>
           ))}
         </div>
-        <p className="slide-subtitle mt-10 text-white/85">
-          Every line above is bent toward recurring revenue. One-off transaction fees fund a
-          project; recurring fees fund a company and give the valuation a base to stand on.
+        <p className="slide-body-lg mt-8 text-white/85">
+          Every line above is bent toward recurring revenue: one-off fees fund a project, recurring
+          fees fund a company.
         </p>
       </Body>
     </SlideBase>
@@ -482,23 +482,25 @@ const CONSOLIDATED: [string, string, string, string][] = [
   ["Retail media network", "1.2% of platform GMV", "Semi-recurring", "US$734,400"],
 ];
 
-const LAYERED: [string, string][] = [
-  ["Tenant platform fees", "Tiered monthly fee per retailer, wholesaler and tuck shop on the platform"],
-  ["Rider plans", "Rent-to-buy instalment, then a standing platform fee per rider"],
-  ["Garage & maintenance plans", "Monthly servicing and parts cover instead of per-repair invoices"],
-  ["Data & price intelligence", "Demand and pricing feeds licensed to suppliers by subscription"],
-  ["Shopper plans", "Priority delivery and shared family baskets beyond the diaspora tier"],
+/** Phase 2 recurring lines — modelled at steady state, year 3 of the agnostic build. */
+const LAYERED: [string, string, string][] = [
+  ["Tenant platform fees", "240 retail / wholesale tenants @ US$249 pm", "US$717,120"],
+  ["Rider plans", "900 riders @ US$45 pm platform fee", "US$486,000"],
+  ["Garage & maintenance plans", "900 units @ US$18 pm service cover", "US$194,400"],
+  ["Data & price intelligence", "40 supplier licences @ US$1,500 pm", "US$720,000"],
+  ["Shopper plans", "45,000 households @ US$3.99 pm", "US$2,154,600"],
+  ["Tuck-shop trading app", "3,500 shops @ US$9.99 pm", "US$419,580"],
 ];
 
 function ConsolidatedRevenueSlide() {
   return (
     <SlideBase>
-      <SlideChrome kicker="Slide 18 · Consolidated Revenue Model" index={19} />
+      <SlideChrome kicker="Consolidated Ecosystem Revenue" index={19} />
       <Body>
-        <h2 className="slide-title text-pnp-blue">
-          One consolidated revenue model
+        <h2 className="slide-subtitle text-pnp-blue">
+          The full ecosystem: US$21,841,380 a year
         </h2>
-        <div className="mt-10 grid grid-cols-[1.15fr_1fr] gap-8">
+        <div className="mt-7 grid grid-cols-[1.05fr_1fr] gap-8">
           <div className="rounded-3xl border border-pnp-line bg-white p-9 shadow-sm">
             <span className="slide-kicker text-pnp-red">Phase 1 · Modelled today</span>
             <div className="mt-6 space-y-4">
@@ -520,20 +522,29 @@ function ConsolidatedRevenueSlide() {
             </div>
           </div>
           <div className="rounded-3xl bg-pnp-blue p-9 text-white">
-            <span className="slide-kicker text-pnp-gold">Phase 2 · Recurring layer added</span>
-            <div className="mt-6 space-y-5">
-              {LAYERED.map(([t, d]) => (
-                <div key={t}>
-                  <div className="slide-caption font-bold text-white">{t}</div>
-                  <div className="slide-chrome text-white/70">{d}</div>
+            <span className="slide-kicker text-pnp-gold">Phase 2 · Subscription layer</span>
+            <div className="mt-6 space-y-4">
+              {LAYERED.map(([t, d, v]) => (
+                <div key={t} className="flex items-center gap-5">
+                  <div className="flex-1">
+                    <div className="slide-caption font-bold text-white">{t}</div>
+                    <div className="slide-chrome text-white/70">{d}</div>
+                  </div>
+                  <div className="slide-caption font-extrabold text-pnp-gold">{v}</div>
                 </div>
               ))}
             </div>
-            <p className="slide-chrome mt-6 text-white/60">
-              Pricing per tier still to be set — annual values shown as [TBC] until tenant and rider
-              counts are agreed.
-            </p>
+            <div className="mt-6 flex items-center justify-between border-t border-white/20 pt-5">
+              <span className="slide-caption font-bold text-white">Subscription subtotal</span>
+              <span className="slide-body font-extrabold text-pnp-gold">US$4,691,700</span>
+            </div>
           </div>
+        </div>
+        <div className="mt-6 flex items-center justify-between rounded-3xl bg-pnp-red px-12 py-5 text-white">
+          <span className="slide-body-lg font-semibold">
+            Combined annual ecosystem revenue at steady state
+          </span>
+          <span className="slide-subtitle font-extrabold text-white">US$21,841,380</span>
         </div>
       </Body>
     </SlideBase>
@@ -547,30 +558,30 @@ function ConsolidatedRevenueSlide() {
 function RevenueMixSlide() {
   return (
     <SlideBase tone="blue">
-      <SlideChrome kicker="Slide 19 · Future Revenue Mix" index={20} tone="blue" />
+      <SlideChrome kicker="Future Revenue Mix" index={20} tone="blue" />
       <Body>
         <h2 className="slide-title">
-          The mix moves from transaction-led to subscription-led as the platform goes agnostic
+          From transaction-led to subscription-led
         </h2>
-        <div className="mt-12 grid grid-cols-3 gap-8">
+        <div className="mt-10 grid grid-cols-3 gap-8">
           {[
             [
-              "Launch",
+              "Launch · US$17.1M",
               "Diaspora-to-door on TM stock",
-              "Retail margin, delivery share and the cross-border surcharge carry the model. One recurring line: Diaspora Priority at US$647,280.",
+              "Retail margin, delivery share and the cross-border surcharge carry the model. One recurring line: Diaspora Priority at US$647,280 — 4% of revenue.",
             ],
             [
-              "Scale",
+              "Scale · +US$1.4M",
               "Second and third retailers onboard",
-              "Tenant platform fees, rider plans and garage plans start billing monthly. Transaction fees stay, but stop being the whole story.",
+              "Tenant fees (US$717,120), rider plans (US$486,000) and garage cover (US$194,400) start billing monthly, whatever the basket does.",
             ],
             [
-              "Agnostic",
+              "Agnostic · US$21.8M",
               "Marketplace of retailers and tuck shops",
-              "Subscriptions across tenants, riders, shoppers and data become the base load; commission rides on top as upside.",
+              "Shopper plans, tuck-shop apps and data licences add US$3.29M. Recurring revenue reaches US$5,338,980 — 24% of the ecosystem.",
             ],
           ].map(([phase, sub, body]) => (
-            <div key={phase} className="rounded-3xl bg-white/10 p-10">
+            <div key={phase} className="rounded-3xl bg-white/10 p-9">
               <span className="slide-kicker text-pnp-gold">{phase}</span>
               <h3 className="slide-subtitle mt-3 text-white">{sub}</h3>
               <p className="slide-body mt-5 text-white/80">{body}</p>
@@ -582,6 +593,49 @@ function RevenueMixSlide() {
             Same ecosystem, valued differently: transaction fees fund a project, recurring fees fund
             a company.
           </p>
+        </div>
+      </Body>
+    </SlideBase>
+  );
+}
+
+/* ------------------------------------------------------------------ */
+/* The moat — multi-cart, multi-currency diaspora shopping             */
+/* ------------------------------------------------------------------ */
+
+const MOAT: [string, string][] = [
+  [
+    "Multi-cart",
+    "One diaspora sender runs several carts at once — mother in Bulawayo, sister in Gweru, a school tuck order — each with its own recipient, address and delivery slot.",
+  ],
+  [
+    "Multi-currency",
+    "Pay in GBP, USD, ZAR or EUR; settle in-country. FX is handled inside the platform, so the sender never touches a parallel-market rate.",
+  ],
+  [
+    "Sender control",
+    "The payer chooses the goods, not the cash. Money lands as groceries at a door, with proof of delivery back to the sender.",
+  ],
+  [
+    "Why it defends",
+    "Remittance apps move money and stop. Retailers sell locally and stop. Owning both sides of that handover is what nobody else in the market has assembled.",
+  ],
+];
+
+export function MoatSlide() {
+  return (
+    <SlideBase>
+      <SlideChrome kicker="The Moat" index={4} />
+      <Body>
+        <h2 className="slide-title text-pnp-blue">
+          Multi-cart, multi-currency: the moat competitors can’t copy quickly
+        </h2>
+        <div className="mt-10 grid grid-cols-2 gap-8">
+          {MOAT.map(([t, d]) => (
+            <Card key={t} title={t} accent={t === "Why it defends" ? "blue" : "red"}>
+              {d}
+            </Card>
+          ))}
         </div>
       </Body>
     </SlideBase>

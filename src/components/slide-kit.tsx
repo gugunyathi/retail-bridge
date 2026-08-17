@@ -1,5 +1,18 @@
-import type { ReactNode } from "react";
+import { createContext, useContext, type ReactNode } from "react";
 import logo from "@/assets/tmpnp-logo.png";
+
+/** Position of the slide in the deck (1-based). Overrides hardcoded numbers. */
+export const SlideIndexContext = createContext<number | null>(null);
+
+export function SlideIndexProvider({
+  value,
+  children,
+}: {
+  value: number;
+  children: ReactNode;
+}) {
+  return <SlideIndexContext.Provider value={value}>{children}</SlideIndexContext.Provider>;
+}
 
 export function SlideBase({
   children,
@@ -27,6 +40,9 @@ export function SlideChrome({
   tone?: "paper" | "blue" | "red";
 }) {
   const dim = tone === "paper" ? "text-pnp-muted" : "text-white/60";
+  const ctxIndex = useContext(SlideIndexContext);
+  const n = ctxIndex ?? index;
+  const label = kicker.replace(/^slide\s*\d+\s*·\s*/i, "");
   return (
     <>
       <div className="absolute left-[96px] top-[72px] flex items-center gap-6">
@@ -34,11 +50,11 @@ export function SlideChrome({
           <img src={logo} alt="TM Pick n Pay" className="h-[42px] w-auto" />
         </div>
         <span className={`slide-kicker ${tone === "paper" ? "text-pnp-red" : "text-white/80"}`}>
-          {kicker}
+          {`Slide ${String(n).padStart(2, "0")} · ${label}`}
         </span>
       </div>
       <div className={`slide-page absolute right-[96px] top-[84px] ${dim}`}>
-        {String(index).padStart(2, "0")}
+        {String(n).padStart(2, "0")}
       </div>
       <div
         className={`slide-footer absolute bottom-[52px] left-[96px] right-[96px] flex justify-between ${dim}`}

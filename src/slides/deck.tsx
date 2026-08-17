@@ -5,7 +5,7 @@ import diasporaShopper from "@/assets/diaspora-shopper.jpg";
 import storePicking from "@/assets/store-picking.jpg";
 import logo from "@/assets/tmpnp-logo.png";
 import { Body, Card, Pill, SlideBase, SlideChrome } from "@/components/slide-kit";
-import { downstreamSlides } from "@/slides/downstream";
+import { downstreamSlides, MoatSlide } from "@/slides/downstream";
 
 
 const REVENUE = [
@@ -601,21 +601,48 @@ function CloseSlide() {
   );
 }
 
+const byId = (id: string) => {
+  const s = downstreamSlides.find((d) => d.id === id);
+  if (!s) throw new Error(`Unknown downstream slide: ${id}`);
+  return s;
+};
+
 export const slides: { id: string; title: string; Component: () => React.ReactElement }[] = [
+  /* Act 1 — The proposal */
   { id: "title", title: "TM Pick n Pay Express", Component: TitleSlide },
   { id: "opportunity", title: "The Opportunity", Component: OpportunitySlide },
   { id: "status-quo", title: "Status Quo vs Evolution", Component: StatusQuoSlide },
+  { id: "moat", title: "The Moat", Component: MoatSlide },
+  { id: "value-prop", title: "Value Proposition", Component: ValuePropSlide },
+  { id: "first-mover", title: "First-Mover Advantage", Component: FirstMoverSlide },
+
+  /* Act 2 — The numbers today */
   { id: "gmv", title: "P&L Assumptions", Component: GmvSlide },
   { id: "streams", title: "Revenue Streams", Component: StreamsSlide },
   { id: "breakdown", title: "Revenue Breakdown", Component: BreakdownSlide },
+
+  /* Act 3 — How we do the deal */
   { id: "options-a", title: "Business Model Options 1–2", Component: OptionsASlide },
   { id: "options-b", title: "Business Model Options 3–4", Component: OptionsBSlide },
   { id: "matrix", title: "Configuration Matrix", Component: MatrixSlide },
   { id: "integrations", title: "Critical Integrations", Component: IntegrationsSlide },
-  { id: "first-mover", title: "First-Mover Advantage", Component: FirstMoverSlide },
-  { id: "value-prop", title: "Value Proposition", Component: ValuePropSlide },
   { id: "benefits", title: "Benefits", Component: BenefitsSlide },
-  ...downstreamSlides,
+
+  /* Act 4 — Where it goes next: the agnostic platform */
+  byId("why-now"),
+  byId("agnostic"),
+  byId("price-engine"),
+  byId("banking"),
+  byId("scooters"),
+  byId("loyalty"),
+  byId("wholesale"),
+  byId("subscription"),
+
+  /* Act 5 — The consolidated ecosystem economics */
+  byId("consolidated-revenue"),
+  byId("revenue-mix"),
+  byId("structure"),
+
   { id: "close", title: "Next Steps", Component: CloseSlide },
 ];
 
